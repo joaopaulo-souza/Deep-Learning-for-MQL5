@@ -210,53 +210,53 @@ class DropoutLayer : public DeepLearning
   {
 public:
 
-   //Inicializa os pesos e o bias da camada a partir do número de neurônios
+   //Initializes the layer weights and bias from the number of neurons
    void InitLayer(int N_entries, int N_outputs, double LR, double Drop,Optim Op = STD);
-   //Calcula a saída da camada a partir de uma entrada
+   //Calculates the output of the litter from an input
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagates the error
    virtual matrix GradDescent(matrix &Ey);
-   //Atualiza os pesos
+   //Updates the weights
    virtual void   Update(void);
-   //Salvar os pesos, k é o indice da camada;
+   //Save the weights, k is the index of the layer;
    virtual void   SaveWeights(int k,string IAname);
-   //Carregar os pesos
+   //Load the weights 
    virtual void   LoadWeights(int k,string IAname);
-   //Coloca um valor diferente para a taxa de DropOut
+   //Set a different value for the DropOut rate
    virtual void   SetDrop(double Drop);
    
    //ADAM
    virtual void   SetAdam(double B1,double B2,double Alph);
    
 private:
-   //Pesos da camada
+   //weight sof the layer
    matrix W;
-   //Gradiente dos pesos
+   //Gradients of the weights 
    matrix dW;
-   //Bias da camada
+   //Bias of the layer
    matrix B;
-   //Gradiente do bias
+   //Bias gradient
    matrix dB;
-   //Vetor de entrada 
+   //Input vector
    matrix Xe;
-   //Taxa de aprendizagem
+   //Learning rate
    double N;
-   //taxa de Dropout
+   //dropout rate
    double drop;
-   //Matriz de Dropout
+   //Dropout matrix
    matrix D;
-   //Método de Optimização
+   //Optimization method
    Optim OP;
    
       //ADAM 
    //===============
-   //Contador de iterações
+   //Iterations counter
    ulong it; 
    //m
    matrix mW, mB;
    //v
    matrix vW, vB;
-   //hiper parâmetros
+   //hiperparameters 
    double beta1, beta2, alpha; 
   };
 //+------------------------------------------------------------------+
@@ -265,18 +265,18 @@ private:
 class ConvolutionalLayer : public DeepLearning
   {
 public:
-   //Inicializa os kernels e o bias da camada
+   //Initialize kernels and layer biases
    //1<= N_outputs <= N_entries; N_entries-N_outputs+1 =KernelSize.  
    void InitLayer(int N_steps, int N_entries, int N_outputs, double LR, CONV_DIR direction = HORZ, Optim Op = STD);
-   //Calcula a saída da camada a partir de uma entrada
+   //Calculates the output of the litter from an input
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagate the Error
    virtual matrix GradDescent(matrix &Ey);
-   //Atualiza os pesos
+   //Update the weights
    virtual void   Update(void);
-   //Salvar os pesos, k é o indice da camada;
+   //Save the weights, k is the layer index;
    virtual void   SaveWeights(int k,string IAname);
-   //Carregar os pesos
+   //Load Weights
    virtual void   LoadWeights(int k,string IAname);
    
    //ADAM
@@ -285,33 +285,33 @@ public:
    
    
 private:
-   //Kernel da Camada
+   //Kernel layer
    matrix K;
-   //Gradiente do Kernel
+   //Kernel Gradient
    matrix dK;
-   //Bias da camada
+   //Bias of the layer
    matrix B;
-   //Gradiente do Bias
+   //Bias gradient
    matrix dB;
-   //Entrada da Camada
+   //Input layer
    matrix Xe;
-   //Taxa de aprendizagem
+   //Learning rate
    double N;
-   //Método de otimização
+   //Optimization method
    Optim OP;
-   //Direção da convolução
+   //Convolution direction
    CONV_DIR DIR;
    
    
    //ADAM 
    //===============
-   //Contador de iterações
+   //iteration counter
    ulong it; 
    //m
    matrix mK, mB;
    //v
    matrix vK, vB;
-   //hiper parâmetros
+   //hiperparameters 
    double beta1, beta2, alpha; 
   };
 
@@ -322,22 +322,22 @@ private:
 class MaxPoolingLayer : public DeepLearning
   {
 public:
-   //Inicializa os parâmetros da matriz
+   //Initializes parameters
    void   InitLayer( int stride, CONV_DIR direction);
-   //Calcula a saída da camada a partir de uma entrada
-   //A dimensão da saída será Ceil(N_entries / stride)
+   //Calculates the output of the litter from an input
+   //The output dimension is  Ceil(N_entries / stride)
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagates the Error
    virtual matrix GradDescent(matrix &Ey);
 
 private:
    //Stride
    int S;
-   //Direção da operação
+   //Direction
    CONV_DIR DIR; 
-   //Matriz com os índices dos elementos máximos
+   //Matrix with the index of the maximum values
    matrix Max;
-   //Número de steps 
+   //Number of steps 
    int Steps; 
    
    //
@@ -350,13 +350,13 @@ private:
 class FlattenLayer : public DeepLearning
   {
 public:
-   //Calcula a saída da camada a partir de uma entrada
-   //Transforma cada linha da matrix X em uma coluna e depois coloca coluna
-   //abaixo de coluna EX: {{1,2},{3,4}} => {{1},{2},{3},{4}}
+   //Calculates the output of the litter from an input
+   //Transforms each row of matrix X into a column and then puts a column
+   //below column EX: {{1,2},{3,4}} => {{1},{2},{3},{4}}
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagates the Error
    virtual matrix GradDescent(matrix &Ey);
-   //Atualiza os pesos
+   //Updates the weights 
 private: 
    int N_steps;
    int N_entries;
@@ -428,20 +428,20 @@ private:
 class LSTMLayer : public DeepLearning
   {
 public:
-   //Inicializa os Pesos e o bias da camada
+   //Initializes layer weights and bias
    void InitLayer(int N_steps, int N_entries,int N_hidden, int N_outputs, double LR, Optim Op = STD);
-   //Calcula a saída da camada a partir de uma entrada
+   //Calculates the output of the layer from an input
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagates the Error
    virtual matrix GradDescent(matrix &Ey);
-   //Atualiza os pesos
+   //Update the weights
    virtual void   Update(void);
-   //Salvar os pesos, k é o indice da camada;
+   //Save the weights, k is the layer index;
    virtual void   SaveWeights(int k,string IAname);
-   //Carregar os pesos
+   //Load the weights 
    virtual void   LoadWeights(int k,string IAname);
    
-   //Mudar os parâmetros do ADAM
+   //Changing ADAM parameters
    virtual void   SetAdam(double B1, double B2, double Alph); 
    
    
@@ -471,19 +471,19 @@ private:
    //Candidate gate
    matrix Wg,Bg,Zg[],
           dWg,dBg;
-   //saída
+   //output
    matrix Wy,By,Zy[],
           dWy,dBy;
-   //Estado Oculto
+   //Hidden state
    matrix H[];
-   //Memória de Longo Prazo
+   //Long term memory
    matrix C[];
-   //Entrada
+   //Input
    matrix x[],x_h[];
   
    //ADAM 
    //===============
-   //Contador de iterações
+   //Iteration counter
    ulong it; 
    //m
    matrix mWy, mWf, mWo, mWi, mWg;
@@ -492,7 +492,7 @@ private:
    matrix vWy, vWf, vWo, vWi, vWg;
    matrix vBy, vBf, vBo, vBi, vBg;
    
-   //hiper parâmetros
+   //hiperparameters 
    double beta1, beta2, alpha; 
   
   
@@ -504,17 +504,17 @@ private:
 class biLSTMLayer : public DeepLearning
   {
 public:
-   //Inicializa os Pesos e o bias da camada
+   //Initializes layer weights and bias
    void InitLayer(int N_steps, int N_entries,int N_hidden, int N_outputs, double LR, Optim Op = STD);
-   //Calcula a saída da camada a partir de uma entrada
+   //Calculates the output of the layer from an input
    virtual matrix Output(matrix &X);
-   //Propaga o Erro 
+   //Propagates the error
    virtual matrix GradDescent(matrix &Ey);
-   //Atualiza os pesos
+   //Updates the error
    virtual void   Update(void);
-   //Salvar os pesos, k é o indice da camada;
+   //Save weights, k is the layer index;
    virtual void   SaveWeights(int k,string IAname);
-   //Carregar os pesos
+   //load the weights
    virtual void   LoadWeights(int k,string IAname);
    
    
