@@ -72,6 +72,10 @@ void OnInit()
    DenseLayer           *ANN4  = new DenseLayer();
    ActivationLayer      *ACT5  = new ActivationLayer();
    
+   //The layer's parameters used in initialization are explained 
+   //in the in its respective libraries
+
+
    //Layers Initialization
    biLSTM1.InitLayer(N_steps,N_entries,4,1,N,OP);
    ACT2.InitLayer(TANH);  
