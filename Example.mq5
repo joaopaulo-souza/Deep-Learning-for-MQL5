@@ -2,9 +2,21 @@
 TimeSeries time_series;
 #include <DeepLearning.mqh>
 DeepLearning *Layer[];
+
+//Number of layers of our neural net
 int   N_layers = 5;
+
+//Loss object
 Loss loss;
+//Metrics object
 Metrics metrics;
+
+//=============================================================
+//In this Example we are trying to predict de Weather in Delhi
+//This dataset was chosen because it is a time series and 
+//therefore its similarity with financial time series
+//=============================================================
+
 
 void OnInit()
   {
