@@ -1,4 +1,4 @@
-<img src="https://github.com/joaopaulo-souza/joaopaulo-souza/blob/master/robot-trader.jpeg">
+<img src="https://github.com/joaopaulo-souza/Deep-Learning-for-MQL5/blob/master/robot-trader.jpeg">
 
 # Deep Learning for MetaTrader5
 
