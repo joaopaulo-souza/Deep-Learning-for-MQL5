@@ -1,3 +1,5 @@
+<img src="https://github.com/joaopaulo-souza/joaopaulo-souza/blob/master/robot-trader.jpeg">
+
 # Deep Learning for MetaTrader5
 
 Introducing a cutting-edge DeepLearning library tailor-made for MetaTrader 5 users. This library is equipped with some of the most advanced machine learning neural networks to enhance the trading experience and the making of expert advisors. 
