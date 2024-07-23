@@ -1,6 +1,6 @@
 # Deep Learning for MetaTrader5
 
-Introducing a cutting-edge DeepLearning tool tailor-made for MetaTrader 5 users. This powerful tool is equipped with some of the most advanced machine learning neural networks to enhance the trading experience and the making of expert advisors. 
+Introducing a cutting-edge DeepLearning library tailor-made for MetaTrader 5 users. This library is equipped with some of the most advanced machine learning neural networks to enhance the trading experience and the making of expert advisors. 
 
 The array of features includes:
 
@@ -12,3 +12,18 @@ The array of features includes:
 * **LSTM Layer**: Leveraging long-term dependencies for superior sequence prediction.
 * **BiLSTM Layer**: Capturing both past and future data trends for more accurate forecasting.
 * **Flatten Layer**: Streamlining your data for final output processing.
+
+The file DeepLearning.mqh must be stored in the includes directory of MetaTrader5
+The file TimeSeries.mqh must be stored in the includes directory of MetaTrader5
+The directory Layers must also be stored in the includes directory of MetaTrader5
+
+The file Example.mq5 is an example of use of the library. And must be stored in Experts directory of MetaTrader5
+
+The file Delhi.csv is the dataset used. And must be stored in Files directory of MetaTrader5 
+
+The instructions of how to use the library are given in the Example.mq5 file. And also explained in the DeepLearning.mqh and TimeSeries.mqh files
+
+Further explanation of the dataset can be found in: 
+https://www.kaggle.com/datasets/mahirkukreja/delhi-weather-data
+
+
