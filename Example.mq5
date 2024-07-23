@@ -4,6 +4,8 @@ TimeSeries time_series;
 DeepLearning *Layer[];
 
 //Number of layers of our neural net
+//The first thing to do is set the number of layers 
+//the network will have 
 int   N_layers = 5;
 
 //Loss object
@@ -28,6 +30,9 @@ void OnInit()
    M = time_series.ReadDataset("Delhi.csv");
    
    //----------------------------------------------------------------+
+   //After we have the number of layers setted, it's time to load
+   //the dataset and set other parameters of the dataset
+
    //AI Name
    string IAname;
    IAname = "DelhiIA";
@@ -35,7 +40,7 @@ void OnInit()
    ulong epoch = 1000;
    //Learning rate
    double N = 0.001;
-   //Optimization methode 
+   //Optimization Method
    Optim OP = ADAM;
    //number of samples
    ulong N_samples = M.Rows();
@@ -72,8 +77,9 @@ void OnInit()
    DenseLayer           *ANN4  = new DenseLayer();
    ActivationLayer      *ACT5  = new ActivationLayer();
    
+   //The InitLayer method is used to initialize the weights of each layer
    //The layer's parameters used in initialization are explained 
-   //in the in its respective libraries
+   //in the in its respective libraries in Layers directory
 
 
    //Layers Initialization
@@ -101,7 +107,9 @@ void OnInit()
    //+------------------------------------------------------------------+
    //|    Dataset pre-processing                                        |
    //+------------------------------------------------------------------+
-      
+   
+   //The pre-process methods are explained in TimeSeriesData.mqh library
+
    //Shuffle  Dataset
    //M = dataset.Shuffle(M);
    

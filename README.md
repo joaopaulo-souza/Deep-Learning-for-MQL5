@@ -21,7 +21,7 @@ The file Example.mq5 is an example of use of the library. And must be stored in 
 
 The file Delhi.csv is the dataset used. And must be stored in Files directory of MetaTrader5 
 
-The instructions of how to use the library are given in the Example.mq5 file. And also explained in the DeepLearning.mqh and TimeSeries.mqh files
+##The instructions of how to use the library are given in the Example.mq5 file. And also explained in the DeepLearning.mqh and TimeSeries.mqh files
 
 Further explanation of the dataset can be found in: 
 https://www.kaggle.com/datasets/mahirkukreja/delhi-weather-data
